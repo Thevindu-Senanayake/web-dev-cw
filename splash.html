@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LandAlive - Welcome</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Automatic redirect to the Home Page after 4 seconds (HTML meta refresh) -->
+    <meta http-equiv="refresh" content="4; url=home.html" />
+
+    <!-- Splash-specific styling (no shared template, but matches site look & feel) -->
+    <style>
+      .splash {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 24px;
+        color: #fff;
+        overflow: hidden;
+        background: #0f3d21;
+      }
+      /* Full-screen background image that scales to fit */
+      .splash::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: url("https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1600&q=75")
+          center/cover no-repeat;
+        transform: scale(1.05);
+        animation: slowzoom 8s ease-out forwards;
+      }
+      .splash::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: linear-gradient(
+          180deg,
+          rgba(15, 61, 33, 0.72),
+          rgba(15, 61, 33, 0.88)
+        );
+      }
+      @keyframes slowzoom {
+        to {
+          transform: scale(1);
+        }
+      }
+      .splash > * {
+        position: relative;
+        z-index: 2;
+      }
+
+      .splash .eyebrow {
+        color: var(--leaf);
+      }
+      .splash h1 {
+        color: #fff;
+        font-size: clamp(2.4rem, 7vw, 4rem);
+        max-width: 18ch;
+        margin: 0 auto 0.3em;
+      }
+      .splash .hook {
+        max-width: 46ch;
+        font-size: 1.15rem;
+        color: #e7f4ea;
+        margin: 0 auto;
+      }
+      .splash .members {
+        margin-top: 20px;
+        font-size: 0.9rem;
+        letter-spacing: 0.04em;
+        color: #bcd6c2;
+      }
+
+      /* CSS-only loader animation (spinning ring) */
+      .loader {
+        width: 54px;
+        height: 54px;
+        border: 5px solid rgba(255, 255, 255, 0.3);
+        border-top-color: var(--leaf);
+        border-radius: 50%;
+        margin: 26px auto 16px;
+        animation: spin 1s linear infinite;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .countdown {
+        font-size: 1.05rem;
+        font-weight: 600;
+        margin-bottom: 18px;
+        color: #e7f4ea;
+      }
+      .countdown strong {
+        color: var(--leaf);
+        font-size: 1.5rem;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .splash::before {
+          animation: none;
+          transform: scale(1);
+        }
+        .loader {
+          animation: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="splash">
+      <span class="eyebrow">Chapter 1 · See</span>
+      <h1>LandAlive</h1>
+      <p class="hook">
+        Every minute, forests the size of 40 football fields disappear. The
+        clock is already running - and so is our chance to turn it around.
+      </p>
+
+      <!-- CSS loader animation -->
+      <div class="loader" role="img" aria-label="Loading animation"></div>
+
+      <!-- JavaScript countdown timer -->
+      <p class="countdown">
+        Entering the site in <strong id="count">4</strong>…
+      </p>
+
+      <!-- Skip Intro button -->
+      <a href="home.html" class="btn btn-secondary" id="skipBtn">Skip Intro</a>
+
+      <p class="members">
+        A LandAlive project by Thevindu Senanayake · Rashavi Dharmarathne ·
+        Pawan Peiris
+      </p>
+    </section>
+
+    <!-- Countdown + skip logic -->
+    <script>
+      // Visible countdown that updates every second using JavaScript
+      var count = 4;
+      var countEl = document.getElementById("count");
+      var timer = setInterval(function () {
+        count = count - 1;
+        if (count >= 0) {
+          countEl.textContent = count;
+        }
+        if (count <= 0) {
+          clearInterval(timer);
+        }
+      }, 1000);
+
+      // Skip button: cancel the countdown and go straight to the Home Page
+      document.getElementById("skipBtn").addEventListener("click", function () {
+        clearInterval(timer);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page Editor - Student 1 | Thevindu Senanayake</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .editor-wrap {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+      .toc {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 18px 22px;
+        box-shadow: var(--shadow-sm);
+      }
+      .toc ul {
+        margin-left: 1.2em;
+      }
+      .editor-section {
+        margin-bottom: 38px;
+        scroll-margin-top: 100px;
+      }
+      table.log {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 14px;
+      }
+      table.log th,
+      table.log td {
+        border: 1px solid var(--border);
+        padding: 9px 11px;
+        text-align: left;
+        vertical-align: top;
+        font-size: 0.92rem;
+      }
+      table.log th {
+        background: var(--canopy);
+        color: #fff;
+        font-family: var(--font-body);
+      }
+      table.log tr:nth-child(even) {
+        background: var(--sand);
+      }
+      .ref-list {
+        font-size: 0.9rem;
+      }
+      code {
+        background: var(--sand);
+        padding: 1px 5px;
+        border-radius: 4px;
+        font-size: 0.9em;
+      }
+    </style>
+  </head>
+  <body id="top">
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="home.html">
+          <img
+            src="https://images.unsplash.com/photo-1518495973542-4542c06a5843?auto=format&fit=crop&w=100&q=60"
+            alt="LandAlive logo showing sunlit green forest leaves"
+          />
+          <span>
+            <span class="brand-name">LandAlive</span>
+            <span class="brand-tag">Page Editor · Student 1</span>
+          </span>
+        </a>
+        <nav class="main-nav" aria-label="Main navigation">
+          <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="content_ST1.html">Content</a></li>
+            <li><a href="validation_ST1.html">Validation</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="container editor-wrap">
+        <span class="chapter-label">Builder's Logbook</span>
+        <h1>Page Editor - Student 1</h1>
+        <p>
+          <strong>Name:</strong> Thevindu Senanayake &nbsp;|&nbsp;
+          <strong>Role:</strong> Implementation Lead - Template, Global CSS,
+          Home Page, Gallery Page, User Profile, Sitemap
+        </p>
+        <p>
+          <em
+            >Note: our group had three active members, so I also covered the
+            fourth member's deliverables (User Profile and Sitemap).</em
+          >
+        </p>
+
+        <nav class="toc" aria-label="Contents">
+          <h2>Contents</h2>
+          <ul>
+            <li><a href="#completed">Completed Pages / Tasks</a></li>
+            <li><a href="#template">Template &amp; Global CSS</a></li>
+            <li><a href="#home">Home Page</a></li>
+            <li><a href="#gallery">Gallery Page</a></li>
+            <li><a href="#profile">User Profile</a></li>
+            <li><a href="#sitemap">Sitemap</a></li>
+            <li><a href="#challenges">Challenges &amp; Lessons Learned</a></li>
+            <li><a href="#access">Accessibility Considerations</a></li>
+            <li><a href="#janet">JANET Compliance</a></li>
+            <li><a href="#log">Group Meetings &amp; Contribution Log</a></li>
+            <li><a href="#refs">References</a></li>
+          </ul>
+        </nav>
+
+        <section class="editor-section" id="completed">
+          <h2>Completed Pages / Tasks</h2>
+          <ul>
+            <li>Shared HTML template &amp; navigation bar</li>
+            <li>
+              Global stylesheet (<code>style.css</code>) - the "Modern Eco"
+              design system
+            </li>
+            <li>
+              Home Page -
+              <a href="home.html" target="_blank" rel="noopener">view live</a> ·
+              <a href="validation_ST1.html#home">validation</a>
+            </li>
+            <li>
+              Gallery Page -
+              <a href="gallery.html" target="_blank" rel="noopener"
+                >view live</a
+              >
+              · <a href="validation_ST1.html#gallery">validation</a>
+            </li>
+            <li>
+              User Profile -
+              <a href="profile.html" target="_blank" rel="noopener"
+                >view live</a
+              >
+              · <a href="validation_ST1.html#profile">validation</a>
+            </li>
+            <li>
+              Sitemap (SVG) -
+              <a href="sitemap.html" target="_blank" rel="noopener"
+                >view live</a
+              >
+              · <a href="validation_ST1.html#sitemap">validation</a>
+            </li>
+            <li>
+              Content Page 1 -
+              <a href="content_ST1.html" target="_blank" rel="noopener"
+                >view live</a
+              >
+              · <a href="validation_ST1.html#content">validation</a>
+            </li>
+          </ul>
+        </section>
+
+        <section class="editor-section" id="template">
+          <h2>Template &amp; Global CSS</h2>
+          <h3>HTML Structure</h3>
+          <p>
+            I built a reusable structure using semantic elements:
+            <code>&lt;header&gt;</code> holds the brand identity and the
+            <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code> wraps each
+            page's bespoke content, and <code>&lt;footer&gt;</code> carries
+            per-student Page Editor, Validation and compliance links. Semantic
+            tags improve both accessibility and validation.
+          </p>
+          <h3>CSS Techniques</h3>
+          <p>
+            The global stylesheet uses CSS custom properties (<code>:root</code>
+            variables) for a shared palette, an 8px spacing scale, and a
+            Fraunces + Inter type pairing. Flexbox powers the sticky translucent
+            header; CSS Grid drives the card grids and editorial split rows.
+            Hover states use <code>transition</code>, and an
+            <code>.active</code> class marks the current nav item.
+          </p>
+          <h3>Rationale</h3>
+          <p>
+            Variables let a colour or spacing change cascade everywhere without
+            editing each page, supporting visual consistency and the site-wide
+            "guardian's journey" story. A
+            <code>prefers-reduced-motion</code> block disables animation for
+            users who need it.
+          </p>
+        </section>
+
+        <section class="editor-section" id="home">
+          <h2>Home Page</h2>
+          <h3>HTML Structure</h3>
+          <p>
+            The <code>&lt;main&gt;</code> holds a hero
+            <code>&lt;section&gt;</code>, an animated stat row, three mission
+            <code>&lt;article&gt;</code> cards, an interactive gallery linking
+            to all four content pages, and a call-to-action band into the next
+            chapter.
+          </p>
+          <h3>CSS &amp; JS Techniques</h3>
+          <p>
+            Page-specific embedded CSS (5+ rules) styles the hero overlay and
+            gallery-tile hover animation. A small vanilla-JS
+            <code>IntersectionObserver</code> drives the stat counters and
+            scroll-reveal, all reduced-motion safe.
+          </p>
+        </section>
+
+        <section class="editor-section" id="gallery">
+          <h2>Gallery Page</h2>
+          <h3>HTML Structure</h3>
+          <p>
+            Thumbnails store their extended-view data in
+            <code>data-*</code> attributes; a hidden modal
+            <code>&lt;div&gt;</code> is populated on demand.
+          </p>
+          <h3>JavaScript &amp; CSS Techniques</h3>
+          <p>
+            Vanilla JS event listeners handle click-to-expand, close, and
+            click-outside behaviour, plus buttons that switch the colour scheme
+            and font of the extended view only (with the active button
+            highlighted). CSS handles the hover cue and modal transitions.
+          </p>
+        </section>
+
+        <section class="editor-section" id="profile">
+          <h2>User Profile</h2>
+          <h3>HTML Structure</h3>
+          <p>
+            Instead of a form, the page uses two
+            <code>&lt;section&gt;</code> panels: a control panel with a
+            <code>&lt;progress&gt;</code> element, and an output panel with
+            three hidden profile sections.
+          </p>
+          <h3>JavaScript Techniques</h3>
+          <p>
+            A profile object stores nine fields across three steps. Each step
+            fires three <code>prompt()</code> windows; JS handles skips
+            (Cancel/empty), reveals only completed sections via DOM
+            manipulation, updates the progress bar, and lets users revisit any
+            step to add missing details.
+          </p>
+        </section>
+
+        <section class="editor-section" id="sitemap">
+          <h2>Sitemap</h2>
+          <h3>HTML &amp; SVG Techniques</h3>
+          <p>
+            An inline <code>&lt;svg&gt;</code> with a
+            <code>viewBox</code> scales responsively. Every node is an
+            <code>&lt;a&gt;</code> wrapping a <code>&lt;rect&gt;</code> and
+            <code>&lt;text&gt;</code>, with a <code>&lt;title&gt;</code> for its
+            accessible name. CSS gives hover and keyboard-focus feedback, and
+            <code>&lt;path&gt;</code> connectors routed through the gaps show
+            hierarchy without overlapping.
+          </p>
+        </section>
+
+        <section class="editor-section" id="challenges">
+          <h2>Challenges &amp; Lessons Learned</h2>
+          <p>
+            The main challenge was keeping page-specific styles from clashing
+            with the global CSS while rolling out a whole design system. I
+            resolved this by scoping embedded styles under page-specific class
+            names and documenting which parts of the template must not change. I
+            also fixed a hover-flicker bug on cards by switching from movement
+            transforms to an absolutely-positioned overlay, and reworked the
+            sitemap connectors so trunk lines route through gaps between nodes
+            rather than crossing them. I learned how a shared design system
+            keeps a multi-page, story-driven site coherent.
+          </p>
+        </section>
+
+        <section class="editor-section" id="access">
+          <h2>Accessibility Considerations</h2>
+          <p>
+            Every image has descriptive <code>alt</code> text, the nav uses an
+            <code>aria-label</code>, thumbnails are keyboard-operable (<code
+              >tabindex</code
+            >
+            + Enter/Space), a <code>:focus-visible</code> ring is provided
+            globally, and colour contrast between text and backgrounds meets
+            readable levels. Semantic landmarks help screen readers navigate.
+          </p>
+        </section>
+
+        <section class="editor-section" id="janet">
+          <h2>Compliance with JANET Regulations</h2>
+          <p>
+            All content is original and educational, external images are
+            royalty-free (Unsplash) and referenced, and no unlawful or offensive
+            material is published. This respects JANET's acceptable-use
+            expectations for responsible, lawful web publishing and academic
+            integrity.
+          </p>
+        </section>
+
+        <section class="editor-section" id="log">
+          <h2>Group Meetings &amp; Individual Contribution Log</h2>
+          <table class="log">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Date &amp; Time</th>
+                <th>Format</th>
+                <th>Objective</th>
+                <th>Attended</th>
+                <th>My Individual Contribution</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>05 Jun 2026, 10:00</td>
+                <td>Face-to-face</td>
+                <td>Agree SDG &amp; assign roles</td>
+                <td>Yes</td>
+                <td>Proposed SDG 15 and took the template + Home Page.</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>12 Jun 2026, 14:00</td>
+                <td>Online (Teams)</td>
+                <td>Agree visual identity</td>
+                <td>Yes</td>
+                <td>
+                  Presented the Modern Eco palette and card layout, built
+                  <code>style.css</code>.
+                </td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>19 Jun 2026, 10:00</td>
+                <td>Face-to-face</td>
+                <td>Template hand-off</td>
+                <td>Yes</td>
+                <td>
+                  Shared the template and documented non-editable regions for
+                  the team.
+                </td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>26 Jun 2026, 15:00</td>
+                <td>Hybrid</td>
+                <td>Progress review</td>
+                <td>Yes</td>
+                <td>Completed the gallery modal and reviewed nav links.</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>03 Jul 2026, 11:00</td>
+                <td>Online (Teams)</td>
+                <td>Integration testing</td>
+                <td>Yes</td>
+                <td>Checked every page linked correctly to my template.</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td>10 Jul 2026, 13:00</td>
+                <td>Face-to-face</td>
+                <td>Validation &amp; final polish</td>
+                <td>Yes</td>
+                <td>
+                  Ran W3C validation on my three pages and fixed warnings.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="editor-section" id="refs">
+          <h2>References</h2>
+          <ul class="ref-list">
+            <li>
+              Module lecture notes (2025/26), Web Design &amp; Development -
+              used for template and meta-refresh guidance.
+            </li>
+            <li>
+              MDN Web Docs - CSS Grid, Flexbox &amp; IntersectionObserver.
+              <a
+                href="https://developer.mozilla.org/"
+                target="_blank"
+                rel="noopener"
+                >developer.mozilla.org</a
+              >
+            </li>
+            <li>
+              Google Fonts - Fraunces &amp; Inter.
+              <a href="https://fonts.google.com/" target="_blank" rel="noopener"
+                >fonts.google.com</a
+              >
+            </li>
+            <li>
+              Unsplash - royalty-free imagery.
+              <a href="https://unsplash.com/" target="_blank" rel="noopener"
+                >unsplash.com</a
+              >
+            </li>
+            <li>
+              W3C Web Accessibility Initiative.
+              <a href="https://www.w3.org/WAI/" target="_blank" rel="noopener"
+                >w3.org/WAI</a
+              >
+            </li>
+          </ul>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div>
+          <p class="foot-h">LandAlive</p>
+          <p>Page Editor - Student 1.</p>
+        </div>
+        <div>
+          <p class="foot-h">Links</p>
+          <ul>
+            <li><a href="validation_ST1.html">My Validation Page</a></li>
+            <li><a href="home.html">Home</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="foot-h">Student Details</p>
+          <p>Thevindu Senanayake - Student 1</p>
+        </div>
+        <div>
+          <p class="foot-h">The Team</p>
+          <ul>
+            <li>
+              Thevindu Senanayake - Student 1 (Template, Home, Gallery, Profile,
+              Sitemap)
+            </li>
+            <li>Rashavi Dharmarathne - Student 2 (Splash, Simulator)</li>
+            <li>Pawan Peiris - Student 3 (Feedback, Team)</li>
+          </ul>
+        </div>
+        <div>
+          <p class="foot-h">Compliance</p>
+          <ul>
+            <li>
+              <a href="https://www.w3.org/WAI/" target="_blank" rel="noopener"
+                >Accessibility (WAI)</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer-bottom">&copy; 2026 LandAlive.</p>
+    </footer>
+  </body>
+</html>

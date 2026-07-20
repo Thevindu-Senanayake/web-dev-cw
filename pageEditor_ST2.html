@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page Editor - Student 2 | Rashavi Dharmarathne</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .editor-wrap {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+      .toc {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 18px 22px;
+        box-shadow: var(--shadow-sm);
+      }
+      .toc ul {
+        margin-left: 1.2em;
+      }
+      .editor-section {
+        margin-bottom: 38px;
+        scroll-margin-top: 100px;
+      }
+      table.log {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 14px;
+      }
+      table.log th,
+      table.log td {
+        border: 1px solid var(--border);
+        padding: 9px 11px;
+        text-align: left;
+        vertical-align: top;
+        font-size: 0.92rem;
+      }
+      table.log th {
+        background: var(--canopy);
+        color: #fff;
+        font-family: var(--font-body);
+      }
+      table.log tr:nth-child(even) {
+        background: var(--sand);
+      }
+      .ref-list {
+        font-size: 0.9rem;
+      }
+      code {
+        background: var(--sand);
+        padding: 1px 5px;
+        border-radius: 4px;
+        font-size: 0.9em;
+      }
+    </style>
+  </head>
+  <body id="top">
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="home.html">
+          <img
+            src="https://images.unsplash.com/photo-1518495973542-4542c06a5843?auto=format&fit=crop&w=100&q=60"
+            alt="LandAlive logo showing sunlit green forest leaves"
+          />
+          <span>
+            <span class="brand-name">LandAlive</span>
+            <span class="brand-tag">Page Editor · Student 2</span>
+          </span>
+        </a>
+        <nav class="main-nav" aria-label="Main navigation">
+          <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="splash.html">Splash</a></li>
+            <li><a href="ais.html">Simulator</a></li>
+            <li><a href="content_ST2.html">Content</a></li>
+            <li><a href="validation_ST2.html">Validation</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="container editor-wrap">
+        <span class="chapter-label">Builder's Logbook</span>
+        <h1>Page Editor - Student 2</h1>
+        <p>
+          <strong>Name:</strong> Rashavi Dharmarathne &nbsp;|&nbsp;
+          <strong>Role:</strong> Splash Screen, Action Impact Simulator, Content
+          Page 2
+        </p>
+
+        <nav class="toc" aria-label="Contents">
+          <h2>Contents</h2>
+          <ul>
+            <li><a href="#completed">Completed Pages / Tasks</a></li>
+            <li><a href="#splash">Splash Screen</a></li>
+            <li><a href="#ais">Action Impact Simulator</a></li>
+            <li><a href="#content">Content Page 2</a></li>
+            <li><a href="#challenges">Challenges &amp; Lessons Learned</a></li>
+            <li><a href="#access">Accessibility Considerations</a></li>
+            <li><a href="#janet">JANET Compliance</a></li>
+            <li><a href="#log">Group Meetings &amp; Contribution Log</a></li>
+            <li><a href="#refs">References</a></li>
+          </ul>
+        </nav>
+
+        <section class="editor-section" id="completed">
+          <h2>Completed Pages / Tasks</h2>
+          <ul>
+            <li>
+              Splash Screen -
+              <a href="splash.html" target="_blank" rel="noopener">view live</a>
+              · <a href="validation_ST2.html#splash">validation</a>
+            </li>
+            <li>
+              Action Impact Simulator -
+              <a href="ais.html" target="_blank" rel="noopener">view live</a> ·
+              <a href="validation_ST2.html#ais">validation</a>
+            </li>
+            <li>
+              Content Page 2 -
+              <a href="content_ST2.html" target="_blank" rel="noopener"
+                >view live</a
+              >
+              · <a href="validation_ST2.html#content">validation</a>
+            </li>
+          </ul>
+        </section>
+
+        <section class="editor-section" id="splash">
+          <h2>Splash Screen</h2>
+          <h3>HTML Structure</h3>
+          <p>
+            A single full-screen <code>&lt;section&gt;</code> holds the title,
+            hook, group members, CSS loader and countdown. A
+            <code>&lt;meta http-equiv="refresh"&gt;</code> tag redirects to the
+            Home Page after 4 seconds.
+          </p>
+          <h3>CSS &amp; JavaScript Techniques</h3>
+          <p>
+            The loader is a pure-CSS spinning ring built with
+            <code>@keyframes</code>, and a slow background zoom sets a cinematic
+            tone. JavaScript drives the visible countdown with
+            <code>setInterval</code>, and the Skip button clears the timer and
+            links straight to Home.
+          </p>
+        </section>
+
+        <section class="editor-section" id="ais">
+          <h2>Action Impact Simulator</h2>
+          <h3>HTML Structure</h3>
+          <p>
+            Six action <code>&lt;div&gt;</code> cards each carry a
+            <code>data-points</code> value, plus a live feedback area with
+            <code>aria-live</code>.
+          </p>
+          <h3>JavaScript Techniques</h3>
+          <p>
+            Clicking a card toggles a <code>selected</code> class; JS sums the
+            points, decides Low/Medium/High level using three thresholds,
+            updates the message, and swaps the page background image so the land
+            visibly heals. Five embedded CSS rules style the cards and selected
+            state.
+          </p>
+        </section>
+
+        <section class="editor-section" id="content">
+          <h2>Content Page 2</h2>
+          <p>
+            Covers Wildlife &amp; Biodiversity with four sections, four images,
+            in-page anchor navigation and a CSS-only Go-to-Top button.
+          </p>
+        </section>
+
+        <section class="editor-section" id="challenges">
+          <h2>Challenges &amp; Lessons Learned</h2>
+          <p>
+            Getting the background image to change smoothly without hurting text
+            readability was tricky. I added a translucent panel behind the
+            content and a CSS <code>transition</code> on the background. I
+            learned how JavaScript state (the running total) can drive visual
+            storytelling.
+          </p>
+        </section>
+
+        <section class="editor-section" id="access">
+          <h2>Accessibility Considerations</h2>
+          <p>
+            Cards are keyboard-focusable and respond to Enter/Space, the
+            feedback area uses <code>aria-live="polite"</code>, all images have
+            <code>alt</code> text, and the loader has an
+            <code>aria-label</code>. Contrast stays readable over every
+            background image, and the splash animation respects
+            <code>prefers-reduced-motion</code>.
+          </p>
+        </section>
+
+        <section class="editor-section" id="janet">
+          <h2>Compliance with JANET Regulations</h2>
+          <p>
+            Content is original, educational and non-offensive; images are
+            royalty-free and credited. The pages promote lawful, responsible
+            messaging in line with JANET acceptable-use principles.
+          </p>
+        </section>
+
+        <section class="editor-section" id="log">
+          <h2>Group Meetings &amp; Individual Contribution Log</h2>
+          <table class="log">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Date &amp; Time</th>
+                <th>Format</th>
+                <th>Objective</th>
+                <th>Attended</th>
+                <th>My Individual Contribution</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>05 Jun 2026, 10:00</td>
+                <td>Face-to-face</td>
+                <td>Agree SDG &amp; assign roles</td>
+                <td>Yes</td>
+                <td>Agreed to take the Splash Screen and Simulator.</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>12 Jun 2026, 14:00</td>
+                <td>Online (Teams)</td>
+                <td>Agree visual identity</td>
+                <td>Yes</td>
+                <td>Suggested the animated loader idea to match branding.</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>19 Jun 2026, 10:00</td>
+                <td>Face-to-face</td>
+                <td>Template hand-off</td>
+                <td>Yes</td>
+                <td>Integrated my pages into Student 1's template.</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>26 Jun 2026, 15:00</td>
+                <td>Hybrid</td>
+                <td>Progress review</td>
+                <td>No</td>
+                <td>
+                  Was unwell; reviewed notes afterward and coded the scoring
+                  logic.
+                </td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>03 Jul 2026, 11:00</td>
+                <td>Online (Teams)</td>
+                <td>Integration testing</td>
+                <td>Yes</td>
+                <td>Tested the three background thresholds and Skip button.</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td>10 Jul 2026, 13:00</td>
+                <td>Face-to-face</td>
+                <td>Validation &amp; final polish</td>
+                <td>Yes</td>
+                <td>Validated my pages and fixed minor markup issues.</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="editor-section" id="refs">
+          <h2>References</h2>
+          <ul class="ref-list">
+            <li>
+              Module lecture notes (2025/26) - "Automatic Redirect in Links" for
+              meta refresh.
+            </li>
+            <li>
+              MDN Web Docs - <code>setInterval</code> &amp; CSS animations.
+              <a
+                href="https://developer.mozilla.org/"
+                target="_blank"
+                rel="noopener"
+                >developer.mozilla.org</a
+              >
+            </li>
+            <li>
+              Unsplash - royalty-free imagery.
+              <a href="https://unsplash.com/" target="_blank" rel="noopener"
+                >unsplash.com</a
+              >
+            </li>
+          </ul>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div>
+          <p class="foot-h">LandAlive</p>
+          <p>Page Editor - Student 2.</p>
+        </div>
+        <div>
+          <p class="foot-h">Links</p>
+          <ul>
+            <li><a href="validation_ST2.html">My Validation Page</a></li>
+            <li><a href="home.html">Home</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="foot-h">Student Details</p>
+          <p>Rashavi Dharmarathne - Student 2</p>
+        </div>
+        <div>
+          <p class="foot-h">The Team</p>
+          <ul>
+            <li>
+              Thevindu Senanayake - Student 1 (Template, Home, Gallery, Profile,
+              Sitemap)
+            </li>
+            <li>Rashavi Dharmarathne - Student 2 (Splash, Simulator)</li>
+            <li>Pawan Peiris - Student 3 (Feedback, Team)</li>
+          </ul>
+        </div>
+        <div>
+          <p class="foot-h">Compliance</p>
+          <ul>
+            <li>
+              <a href="https://www.w3.org/WAI/" target="_blank" rel="noopener"
+                >Accessibility (WAI)</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer-bottom">&copy; 2026 LandAlive.</p>
+    </footer>
+  </body>
+</html>

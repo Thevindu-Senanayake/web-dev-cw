@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LandAlive - Sitemap | SDG 15: Life on Land</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- ========== PAGE-SPECIFIC EMBEDDED CSS (Sitemap only) ========== -->
+    <style>
+      .sitemap-wrap {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow-sm);
+        padding: 20px;
+        overflow-x: auto;
+      }
+      /* Responsive SVG scales with viewBox */
+      svg.sitemap {
+        width: 100%;
+        height: auto;
+        display: block;
+        min-width: 680px;
+      }
+
+      /* Node rectangles */
+      .node rect {
+        fill: var(--forest);
+        stroke: var(--canopy);
+        stroke-width: 2;
+        transition:
+          fill 0.25s ease,
+          stroke-width 0.25s ease;
+      }
+      .node text {
+        fill: #fff;
+        font-family: "Inter", sans-serif;
+        font-size: 15px;
+        font-weight: 600;
+        pointer-events: none;
+      }
+      /* Hover + keyboard focus feedback on nodes */
+      .node:hover rect,
+      .node:focus rect {
+        fill: var(--clay);
+        stroke-width: 4;
+      }
+      .node:focus {
+        outline: none;
+      }
+      .node:focus rect {
+        stroke: var(--leaf);
+      }
+
+      /* Root node accent */
+      .node.root rect {
+        fill: var(--canopy);
+      }
+      .node.root:hover rect,
+      .node.root:focus rect {
+        fill: var(--clay);
+      }
+
+      /* Connector lines */
+      .link {
+        stroke: var(--muted);
+        stroke-width: 2;
+        fill: none;
+      }
+      /* Small labels sitting on the left rail buses */
+      .bus-label {
+        fill: var(--muted);
+        font-family: "Inter", sans-serif;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+      }
+    </style>
+  </head>
+  <body class="has-scene">
+    <!-- Decorative animated SVG scenery (pure SVG, no images). Purely decorative. -->
+    <svg
+      class="bg-scene"
+      viewBox="0 0 1440 900"
+      preserveAspectRatio="xMidYMax slice"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <defs>
+        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#eaf5ec" />
+          <stop offset="100%" stop-color="#f4efe6" />
+        </linearGradient>
+      </defs>
+      <rect width="1440" height="900" fill="url(#sky)" />
+      <circle cx="1180" cy="180" r="70" fill="#f0e2b8" opacity="0.7" />
+      <path
+        class="hill-back"
+        d="M-60 640 Q360 520 760 620 T1500 600 V900 H-60 Z"
+        fill="#cfe6cf"
+      />
+      <path
+        class="hill-front"
+        d="M-60 730 Q420 620 860 720 T1500 700 V900 H-60 Z"
+        fill="#a9d3a9"
+      />
+      <g class="tree t1">
+        <rect x="243" y="560" width="18" height="120" rx="6" fill="#6b4a2b" />
+        <circle cx="252" cy="540" r="60" fill="#4f9b52" />
+        <circle cx="212" cy="565" r="42" fill="#5cae5c" />
+        <circle cx="292" cy="565" r="42" fill="#5cae5c" />
+      </g>
+      <g class="tree t2">
+        <rect x="713" y="600" width="22" height="150" rx="7" fill="#6b4a2b" />
+        <circle cx="724" cy="575" r="78" fill="#43903f" />
+        <circle cx="675" cy="605" r="52" fill="#57a457" />
+        <circle cx="773" cy="605" r="52" fill="#57a457" />
+      </g>
+      <g class="tree t3">
+        <rect x="1173" y="585" width="18" height="130" rx="6" fill="#6b4a2b" />
+        <circle cx="1182" cy="560" r="58" fill="#4f9b52" />
+        <circle cx="1146" cy="585" r="40" fill="#5cae5c" />
+        <circle cx="1218" cy="585" r="40" fill="#5cae5c" />
+      </g>
+      <g fill="#7cb342">
+        <path class="leaf l1" d="M420 120 q20 -20 40 0 q-20 20 -40 0Z" />
+        <path
+          class="leaf l2"
+          d="M900 60 q18 -18 36 0 q-18 18 -36 0Z"
+          fill="#c8794b"
+        />
+        <path class="leaf l3" d="M1240 100 q20 -20 40 0 q-20 20 -40 0Z" />
+      </g>
+    </svg>
+    <!-- ===== SHARED HEADER + NAVIGATION ===== -->
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="home.html">
+          <img
+            src="https://images.unsplash.com/photo-1518495973542-4542c06a5843?auto=format&fit=crop&w=100&q=60"
+            alt="LandAlive logo showing sunlit green forest leaves"
+          />
+          <span>
+            <span class="brand-name">LandAlive</span>
+            <span class="brand-tag">SDG 15 · Life on Land</span>
+          </span>
+        </a>
+        <nav class="main-nav" aria-label="Main navigation">
+          <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="ais.html">Simulator</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="sitemap.html" class="active">Sitemap</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <span class="chapter-label">The map of the journey</span>
+        <h1>Website Sitemap</h1>
+        <p class="section-lead">
+          Every chapter of LandAlive in one view. Click any node to jump to that
+          page; use Tab to move between nodes with the keyboard.
+        </p>
+
+        <div class="sitemap-wrap" style="margin-top: 28px">
+          <svg
+            class="sitemap"
+            viewBox="0 0 1000 620"
+            role="img"
+            aria-label="Interactive sitemap of the LandAlive website"
+          >
+            <title>LandAlive Sitemap</title>
+
+            <!-- ===== Connector lines (drawn first, sit behind nodes) =====
+               A left-side rail branches off Home and feeds the content and
+               footer rows, so no line threads between nodes. -->
+            <path class="link" d="M500 68 V110"></path>
+            <path class="link" d="M500 158 V195"></path>
+            <path class="link" d="M120 195 H880"></path>
+            <path class="link" d="M120 195 V235"></path>
+            <path class="link" d="M272 195 V235"></path>
+            <path class="link" d="M424 195 V235"></path>
+            <path class="link" d="M576 195 V235"></path>
+            <path class="link" d="M728 195 V235"></path>
+            <path class="link" d="M880 195 V235"></path>
+            <!-- Left rail from the Home trunk -->
+            <path class="link" d="M500 172 H30 V465"></path>
+            <!-- Content bus -->
+            <path class="link" d="M30 355 H590"></path>
+            <path class="link" d="M230 355 V395"></path>
+            <path class="link" d="M410 355 V395"></path>
+            <path class="link" d="M590 355 V395"></path>
+            <!-- Page Editor bus (feeds the 3 editor nodes) -->
+            <path class="link" d="M30 465 H770"></path>
+            <path class="link" d="M230 465 V485"></path>
+            <path class="link" d="M500 465 V485"></path>
+            <path class="link" d="M770 465 V485"></path>
+            <!-- Each Page Editor drops to its Validation page directly below -->
+            <path class="link" d="M230 529 V550"></path>
+            <path class="link" d="M500 529 V550"></path>
+            <path class="link" d="M770 529 V550"></path>
+
+            <!-- Bus group labels -->
+            <text class="bus-label" x="42" y="345">Content pages</text>
+            <text class="bus-label" x="42" y="455">
+              Editors &amp; validation
+            </text>
+
+            <!-- ===== Nodes ===== -->
+            <a href="splash.html" class="node root" tabindex="0">
+              <title>Splash Screen</title>
+              <rect x="410" y="20" width="180" height="48" rx="10"></rect>
+              <text x="500" y="50" text-anchor="middle">Splash</text>
+            </a>
+
+            <a href="home.html" class="node" tabindex="0">
+              <title>Home Page</title>
+              <rect x="410" y="110" width="180" height="48" rx="10"></rect>
+              <text x="500" y="140" text-anchor="middle">Home</text>
+            </a>
+
+            <a href="ais.html" class="node" tabindex="0">
+              <title>Action Impact Simulator</title>
+              <rect x="54" y="235" width="132" height="50" rx="10"></rect>
+              <text x="120" y="266" text-anchor="middle">Simulator</text>
+            </a>
+            <a href="gallery.html" class="node" tabindex="0">
+              <title>Gallery Page</title>
+              <rect x="206" y="235" width="132" height="50" rx="10"></rect>
+              <text x="272" y="266" text-anchor="middle">Gallery</text>
+            </a>
+            <a href="profile.html" class="node" tabindex="0">
+              <title>User Profile</title>
+              <rect x="358" y="235" width="132" height="50" rx="10"></rect>
+              <text x="424" y="266" text-anchor="middle">Profile</text>
+            </a>
+            <a href="feedback.html" class="node" tabindex="0">
+              <title>Feedback Page</title>
+              <rect x="510" y="235" width="132" height="50" rx="10"></rect>
+              <text x="576" y="266" text-anchor="middle">Feedback</text>
+            </a>
+            <a href="team.html" class="node" tabindex="0">
+              <title>Team Page</title>
+              <rect x="662" y="235" width="132" height="50" rx="10"></rect>
+              <text x="728" y="266" text-anchor="middle">Team</text>
+            </a>
+            <a href="sitemap.html" class="node" tabindex="0">
+              <title>Sitemap Page</title>
+              <rect x="814" y="235" width="132" height="50" rx="10"></rect>
+              <text x="880" y="266" text-anchor="middle">Sitemap</text>
+            </a>
+
+            <a href="content_ST1.html" class="node" tabindex="0">
+              <title>Content Page - Student 1</title>
+              <rect x="155" y="395" width="150" height="50" rx="10"></rect>
+              <text x="230" y="426" text-anchor="middle">Content 1</text>
+            </a>
+            <a href="content_ST2.html" class="node" tabindex="0">
+              <title>Content Page - Student 2</title>
+              <rect x="335" y="395" width="150" height="50" rx="10"></rect>
+              <text x="410" y="426" text-anchor="middle">Content 2</text>
+            </a>
+            <a href="content_ST3.html" class="node" tabindex="0">
+              <title>Content Page - Student 3</title>
+              <rect x="515" y="395" width="150" height="50" rx="10"></rect>
+              <text x="590" y="426" text-anchor="middle">Content 3</text>
+            </a>
+
+            <!-- Page Editors (Students 1-3) -->
+            <a href="pageEditor_ST1.html" class="node" tabindex="0">
+              <title>Page Editor - Student 1</title>
+              <rect x="150" y="485" width="160" height="44" rx="10"></rect>
+              <text x="230" y="513" text-anchor="middle">Editor ST1</text>
+            </a>
+            <a href="pageEditor_ST2.html" class="node" tabindex="0">
+              <title>Page Editor - Student 2</title>
+              <rect x="420" y="485" width="160" height="44" rx="10"></rect>
+              <text x="500" y="513" text-anchor="middle">Editor ST2</text>
+            </a>
+            <a href="pageEditor_ST3.html" class="node" tabindex="0">
+              <title>Page Editor - Student 3</title>
+              <rect x="690" y="485" width="160" height="44" rx="10"></rect>
+              <text x="770" y="513" text-anchor="middle">Editor ST3</text>
+            </a>
+
+            <!-- Validation pages (Students 1-3) -->
+            <a href="validation_ST1.html" class="node" tabindex="0">
+              <title>Validation - Student 1</title>
+              <rect x="150" y="550" width="160" height="44" rx="10"></rect>
+              <text x="230" y="578" text-anchor="middle">Validation ST1</text>
+            </a>
+            <a href="validation_ST2.html" class="node" tabindex="0">
+              <title>Validation - Student 2</title>
+              <rect x="420" y="550" width="160" height="44" rx="10"></rect>
+              <text x="500" y="578" text-anchor="middle">Validation ST2</text>
+            </a>
+            <a href="validation_ST3.html" class="node" tabindex="0">
+              <title>Validation - Student 3</title>
+              <rect x="690" y="550" width="160" height="44" rx="10"></rect>
+              <text x="770" y="578" text-anchor="middle">Validation ST3</text>
+            </a>
+          </svg>
+        </div>
+      </div>
+    </main>
+
+    <!-- ===== SHARED FOOTER (Student 1) ===== -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div>
+          <p class="foot-h">LandAlive</p>
+          <p>Student-led action for SDG 15: Life on Land.</p>
+        </div>
+        <div>
+          <p class="foot-h">This Page</p>
+          <ul>
+            <li><a href="pageEditor_ST1.html">Page Editor (Student 1)</a></li>
+            <li><a href="validation_ST1.html">Validation (Student 1)</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="foot-h">Student Details</p>
+          <p>
+            Thevindu Senanayake - Student 1<br />Template, Home, Gallery,
+            Profile, Sitemap
+          </p>
+        </div>
+        <div>
+          <p class="foot-h">The Team</p>
+          <ul>
+            <li>
+              Thevindu Senanayake - Student 1 (Template, Home, Gallery, Profile,
+              Sitemap)
+            </li>
+            <li>Rashavi Dharmarathne - Student 2 (Splash, Simulator)</li>
+            <li>Pawan Peiris - Student 3 (Feedback, Team)</li>
+          </ul>
+        </div>
+        <div>
+          <p class="foot-h">Compliance</p>
+          <ul>
+            <li>
+              <a href="https://www.w3.org/WAI/" target="_blank" rel="noopener"
+                >Accessibility (WAI)</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer-bottom">
+        &copy; 2026 LandAlive. Images courtesy of Unsplash (royalty-free).
+      </p>
+    </footer>
+  </body>
+</html>

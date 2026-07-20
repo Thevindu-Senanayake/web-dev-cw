@@ -1,0 +1,27 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  format-and-validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # ---- Prettier: fail if any file is not formatted ----
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Check formatting (Prettier)
+        run: npx --yes prettier@3 --check "**/*.{html,css,js,json}"
+
+      # ---- W3C validation: fail if any HTML/CSS is invalid ----
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Install HTML validator
+        run: pip install html5validator
+      - name: Validate HTML & CSS (W3C Nu)
+        run: html5validator --root . --also-check-css

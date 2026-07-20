@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page Editor - Student 3 | Pawan Peiris</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .editor-wrap {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+      .toc {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 18px 22px;
+        box-shadow: var(--shadow-sm);
+      }
+      .toc ul {
+        margin-left: 1.2em;
+      }
+      .editor-section {
+        margin-bottom: 38px;
+        scroll-margin-top: 100px;
+      }
+      table.log {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 14px;
+      }
+      table.log th,
+      table.log td {
+        border: 1px solid var(--border);
+        padding: 9px 11px;
+        text-align: left;
+        vertical-align: top;
+        font-size: 0.92rem;
+      }
+      table.log th {
+        background: var(--canopy);
+        color: #fff;
+        font-family: var(--font-body);
+      }
+      table.log tr:nth-child(even) {
+        background: var(--sand);
+      }
+      .ref-list {
+        font-size: 0.9rem;
+      }
+      code {
+        background: var(--sand);
+        padding: 1px 5px;
+        border-radius: 4px;
+        font-size: 0.9em;
+      }
+    </style>
+  </head>
+  <body id="top">
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="home.html">
+          <img
+            src="https://images.unsplash.com/photo-1518495973542-4542c06a5843?auto=format&fit=crop&w=100&q=60"
+            alt="LandAlive logo showing sunlit green forest leaves"
+          />
+          <span>
+            <span class="brand-name">LandAlive</span>
+            <span class="brand-tag">Page Editor · Student 3</span>
+          </span>
+        </a>
+        <nav class="main-nav" aria-label="Main navigation">
+          <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="content_ST3.html">Content</a></li>
+            <li><a href="validation_ST3.html">Validation</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="container editor-wrap">
+        <span class="chapter-label">Builder's Logbook</span>
+        <h1>Page Editor - Student 3</h1>
+        <p>
+          <strong>Name:</strong> Pawan Peiris &nbsp;|&nbsp;
+          <strong>Role:</strong> Feedback &amp; Programme Directory, Team Page,
+          Content Page 3
+        </p>
+
+        <nav class="toc" aria-label="Contents">
+          <h2>Contents</h2>
+          <ul>
+            <li><a href="#completed">Completed Pages / Tasks</a></li>
+            <li><a href="#feedback">Feedback Page</a></li>
+            <li><a href="#team">Team Page</a></li>
+            <li><a href="#content">Content Page 3</a></li>
+            <li><a href="#challenges">Challenges &amp; Lessons Learned</a></li>
+            <li><a href="#access">Accessibility Considerations</a></li>
+            <li><a href="#janet">JANET Compliance</a></li>
+            <li><a href="#log">Group Meetings &amp; Contribution Log</a></li>
+            <li><a href="#refs">References</a></li>
+          </ul>
+        </nav>
+
+        <section class="editor-section" id="completed">
+          <h2>Completed Pages / Tasks</h2>
+          <ul>
+            <li>
+              Feedback &amp; Programme Directory -
+              <a href="feedback.html" target="_blank" rel="noopener"
+                >view live</a
+              >
+              · <a href="validation_ST3.html#feedback">validation</a>
+            </li>
+            <li>
+              Team Page -
+              <a href="team.html" target="_blank" rel="noopener">view live</a> ·
+              <a href="validation_ST3.html#team">validation</a>
+            </li>
+            <li>
+              Content Page 3 -
+              <a href="content_ST3.html" target="_blank" rel="noopener"
+                >view live</a
+              >
+              · <a href="validation_ST3.html#content">validation</a>
+            </li>
+          </ul>
+        </section>
+
+        <section class="editor-section" id="feedback">
+          <h2>Feedback Page</h2>
+          <h3>HTML Structure</h3>
+          <p>
+            Three clearly separated blocks: a scrollable programme directory (4
+            cards), a ratings/reviews section, and a feedback
+            <code>&lt;form&gt;</code> grouped with
+            <code>&lt;fieldset&gt;</code> and <code>&lt;legend&gt;</code>.
+            Fields include email, tel, date, datetime-local, a select and a
+            maxlength textarea.
+          </p>
+          <h3>JavaScript Techniques</h3>
+          <p>
+            A live character counter updates as the user types, and custom JS
+            validation checks required fields on submit, highlighting invalid
+            inputs and showing a confirmation message on success.
+          </p>
+        </section>
+
+        <section class="editor-section" id="team">
+          <h2>Team Page</h2>
+          <h3>HTML &amp; CSS Techniques</h3>
+          <p>
+            Four member <code>&lt;article&gt;</code> blocks with
+            <code>tabindex="0"</code> for keyboard access. A hidden details
+            panel slides up as an overlay on hover/focus using CSS
+            <code>transform</code> and <code>opacity</code> transitions -
+            implemented as an overlay (not expanding height) to avoid a
+            hover-flicker bug at the card edge.
+          </p>
+        </section>
+
+        <section class="editor-section" id="content">
+          <h2>Content Page 3</h2>
+          <p>
+            Covers Soil &amp; Sustainable Land with four sections, four images,
+            anchor navigation and a CSS-only Go-to-Top button.
+          </p>
+        </section>
+
+        <section class="editor-section" id="challenges">
+          <h2>Challenges &amp; Lessons Learned</h2>
+          <p>
+            Making the form validation feel helpful rather than blocking took
+            iteration. I added inline error messages beside each field and a red
+            highlight class. I learned how to combine native HTML attributes
+            with JavaScript for richer feedback.
+          </p>
+        </section>
+
+        <section class="editor-section" id="access">
+          <h2>Accessibility Considerations</h2>
+          <p>
+            All inputs have associated <code>&lt;label&gt;</code> elements, the
+            team blocks are keyboard-focusable with a visible focus outline,
+            images carry <code>alt</code> text, and error messages are placed
+            next to their fields for clarity.
+          </p>
+        </section>
+
+        <section class="editor-section" id="janet">
+          <h2>Compliance with JANET Regulations</h2>
+          <p>
+            The form collects no data on a server and stores nothing, reviews
+            are fictional and clearly illustrative, and all imagery is
+            royalty-free and credited - consistent with responsible, lawful
+            publishing under JANET.
+          </p>
+        </section>
+
+        <section class="editor-section" id="log">
+          <h2>Group Meetings &amp; Individual Contribution Log</h2>
+          <table class="log">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Date &amp; Time</th>
+                <th>Format</th>
+                <th>Objective</th>
+                <th>Attended</th>
+                <th>My Individual Contribution</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>05 Jun 2026, 10:00</td>
+                <td>Face-to-face</td>
+                <td>Agree SDG &amp; assign roles</td>
+                <td>Yes</td>
+                <td>Took the Feedback and Team pages.</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>12 Jun 2026, 14:00</td>
+                <td>Online (Teams)</td>
+                <td>Agree visual identity</td>
+                <td>Yes</td>
+                <td>Advised on form styling and card separation.</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>19 Jun 2026, 10:00</td>
+                <td>Face-to-face</td>
+                <td>Template hand-off</td>
+                <td>Yes</td>
+                <td>Adopted the shared template for both my pages.</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>26 Jun 2026, 15:00</td>
+                <td>Hybrid</td>
+                <td>Progress review</td>
+                <td>Yes</td>
+                <td>Demoed the live character counter and validation.</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>03 Jul 2026, 11:00</td>
+                <td>Online (Teams)</td>
+                <td>Integration testing</td>
+                <td>Yes</td>
+                <td>Checked nav active states on my pages.</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td>10 Jul 2026, 13:00</td>
+                <td>Face-to-face</td>
+                <td>Validation &amp; final polish</td>
+                <td>Yes</td>
+                <td>Validated my pages and tidied the fieldset markup.</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="editor-section" id="refs">
+          <h2>References</h2>
+          <ul class="ref-list">
+            <li>
+              Module lecture notes (2025/26) - forms &amp; JavaScript
+              validation.
+            </li>
+            <li>
+              MDN Web Docs - form validation &amp; events.
+              <a
+                href="https://developer.mozilla.org/"
+                target="_blank"
+                rel="noopener"
+                >developer.mozilla.org</a
+              >
+            </li>
+            <li>
+              Unsplash - royalty-free imagery.
+              <a href="https://unsplash.com/" target="_blank" rel="noopener"
+                >unsplash.com</a
+              >
+            </li>
+          </ul>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div>
+          <p class="foot-h">LandAlive</p>
+          <p>Page Editor - Student 3.</p>
+        </div>
+        <div>
+          <p class="foot-h">Links</p>
+          <ul>
+            <li><a href="validation_ST3.html">My Validation Page</a></li>
+            <li><a href="home.html">Home</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="foot-h">Student Details</p>
+          <p>Pawan Peiris - Student 3</p>
+        </div>
+        <div>
+          <p class="foot-h">The Team</p>
+          <ul>
+            <li>
+              Thevindu Senanayake - Student 1 (Template, Home, Gallery, Profile,
+              Sitemap)
+            </li>
+            <li>Rashavi Dharmarathne - Student 2 (Splash, Simulator)</li>
+            <li>Pawan Peiris - Student 3 (Feedback, Team)</li>
+          </ul>
+        </div>
+        <div>
+          <p class="foot-h">Compliance</p>
+          <ul>
+            <li>
+              <a href="https://www.w3.org/WAI/" target="_blank" rel="noopener"
+                >Accessibility (WAI)</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer-bottom">&copy; 2026 LandAlive.</p>
+    </footer>
+  </body>
+</html>

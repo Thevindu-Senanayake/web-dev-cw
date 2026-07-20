@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LandAlive - Soil &amp; Sustainable Land | Content (ST3)</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- ========== PAGE-SPECIFIC EMBEDDED CSS (Content page) ========== -->
+    <style>
+      .page-nav {
+        position: sticky;
+        top: 84px;
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 14px 18px;
+        margin-bottom: 28px;
+        box-shadow: var(--shadow-sm);
+        z-index: 5;
+      }
+      .page-nav ul {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .page-nav a {
+        text-decoration: none;
+        padding: 7px 14px;
+        border-radius: var(--radius-pill);
+        background: var(--sand);
+        color: var(--canopy);
+        font-weight: 600;
+        font-size: 0.92rem;
+      }
+      .page-nav a:hover {
+        background: var(--leaf);
+        color: #fff;
+      }
+      .content-section {
+        margin-bottom: 52px;
+        scroll-margin-top: 150px;
+      }
+      .content-section img {
+        width: 100%;
+        height: auto;
+      }
+      .go-top {
+        position: fixed;
+        right: 22px;
+        bottom: 22px;
+        background: var(--clay);
+        color: #fff;
+        text-decoration: none;
+        padding: 12px 18px;
+        border-radius: var(--radius-pill);
+        font-weight: 700;
+        box-shadow: var(--shadow);
+        z-index: 500;
+      }
+      .go-top:hover {
+        background: var(--canopy);
+      }
+    </style>
+  </head>
+  <body id="top" class="has-scene">
+    <!-- Decorative animated SVG scenery (pure SVG, no images). Purely decorative. -->
+    <svg
+      class="bg-scene"
+      viewBox="0 0 1440 900"
+      preserveAspectRatio="xMidYMax slice"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <defs>
+        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#eaf5ec" />
+          <stop offset="100%" stop-color="#f4efe6" />
+        </linearGradient>
+      </defs>
+      <rect width="1440" height="900" fill="url(#sky)" />
+      <circle cx="1180" cy="180" r="70" fill="#f0e2b8" opacity="0.7" />
+      <path
+        class="hill-back"
+        d="M-60 640 Q360 520 760 620 T1500 600 V900 H-60 Z"
+        fill="#cfe6cf"
+      />
+      <path
+        class="hill-front"
+        d="M-60 730 Q420 620 860 720 T1500 700 V900 H-60 Z"
+        fill="#a9d3a9"
+      />
+      <g class="tree t1">
+        <rect x="243" y="560" width="18" height="120" rx="6" fill="#6b4a2b" />
+        <circle cx="252" cy="540" r="60" fill="#4f9b52" />
+        <circle cx="212" cy="565" r="42" fill="#5cae5c" />
+        <circle cx="292" cy="565" r="42" fill="#5cae5c" />
+      </g>
+      <g class="tree t2">
+        <rect x="713" y="600" width="22" height="150" rx="7" fill="#6b4a2b" />
+        <circle cx="724" cy="575" r="78" fill="#43903f" />
+        <circle cx="675" cy="605" r="52" fill="#57a457" />
+        <circle cx="773" cy="605" r="52" fill="#57a457" />
+      </g>
+      <g class="tree t3">
+        <rect x="1173" y="585" width="18" height="130" rx="6" fill="#6b4a2b" />
+        <circle cx="1182" cy="560" r="58" fill="#4f9b52" />
+        <circle cx="1146" cy="585" r="40" fill="#5cae5c" />
+        <circle cx="1218" cy="585" r="40" fill="#5cae5c" />
+      </g>
+      <g fill="#7cb342">
+        <path class="leaf l1" d="M420 120 q20 -20 40 0 q-20 20 -40 0Z" />
+        <path
+          class="leaf l2"
+          d="M900 60 q18 -18 36 0 q-18 18 -36 0Z"
+          fill="#c8794b"
+        />
+        <path class="leaf l3" d="M1240 100 q20 -20 40 0 q-20 20 -40 0Z" />
+      </g>
+    </svg>
+    <!-- ===== SHARED HEADER + NAVIGATION ===== -->
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="home.html">
+          <img
+            src="https://images.unsplash.com/photo-1518495973542-4542c06a5843?auto=format&fit=crop&w=100&q=60"
+            alt="LandAlive logo showing sunlit green forest leaves"
+          />
+          <span>
+            <span class="brand-name">LandAlive</span>
+            <span class="brand-tag">SDG 15 · Life on Land</span>
+          </span>
+        </a>
+        <nav class="main-nav" aria-label="Main navigation">
+          <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="ais.html">Simulator</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="sitemap.html">Sitemap</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <span class="chapter-label">Field Guide · Chapter 3</span>
+        <h1>Soil &amp; Sustainable Land</h1>
+        <p class="section-lead">
+          Healthy soil is the foundation of life on land - and one of the
+          easiest things for anyone to protect. Here's the threat, what recovery
+          looks like, and your move.
+        </p>
+
+        <nav class="page-nav" aria-label="On this page">
+          <ul>
+            <li><a href="#living">Living Soil</a></li>
+            <li><a href="#degradation">Land Degradation</a></li>
+            <li><a href="#regen">Regenerative Practices</a></li>
+            <li><a href="#act">How You Can Act</a></li>
+          </ul>
+        </nav>
+
+        <section class="content-section" id="living">
+          <span class="eyebrow">The stakes</span>
+          <h2>Living Soil</h2>
+          <p>
+            A single handful of healthy soil contains billions of organisms that
+            recycle nutrients and store water. This living layer feeds nearly
+            all our crops and locks away carbon, making it one of the planet's
+            most important - and overlooked - resources.
+          </p>
+          <img
+            class="img-styled"
+            src="https://images.unsplash.com/photo-1632660879345-50887555aafc?auto=format&fit=crop&w=900&q=60"
+            alt="A pair of hands holding rich dark healthy soil"
+          />
+        </section>
+
+        <section class="content-section" id="degradation">
+          <span class="eyebrow">The threat</span>
+          <h2>Land Degradation</h2>
+          <p>
+            Over-farming, chemical overuse, and erosion strip soil of life and
+            nutrients. Degraded land grows less food, holds less water, and
+            releases stored carbon. Roughly a third of the world's soil is
+            already degraded.
+          </p>
+          <img
+            class="img-styled"
+            src="https://images.unsplash.com/photo-1515788909301-3cfe52ab6bdd?auto=format&fit=crop&w=900&q=60"
+            alt="Dry cracked earth showing degraded soil"
+          />
+        </section>
+
+        <section class="content-section" id="regen">
+          <span class="eyebrow">The recovery</span>
+          <h2>Regenerative Practices</h2>
+          <p>
+            Cover crops, crop rotation, composting, and reduced tillage rebuild
+            soil health over time. These regenerative methods bring back organic
+            matter, support pollinators, and make farmland more productive
+            without chemicals.
+          </p>
+          <img
+            class="img-styled"
+            src="https://images.unsplash.com/photo-1586771107445-d3ca888129ff?auto=format&fit=crop&w=900&q=60"
+            alt="Rows of healthy green crops on a sustainable farm"
+          />
+        </section>
+
+        <section class="content-section" id="act">
+          <span class="eyebrow">Your move</span>
+          <h2>How You Can Act</h2>
+          <p>
+            Compost your food scraps, buy from regenerative or local farms,
+            avoid peat-based products, and grow something - even a windowsill
+            herb. Every bit of living soil you nurture supports the wider land
+            ecosystem.
+          </p>
+          <img
+            class="img-styled"
+            src="https://images.unsplash.com/photo-1621496654772-c66c48290259?auto=format&fit=crop&w=900&q=60"
+            alt="A compost bin filled with food scraps and leaves"
+          />
+        </section>
+
+        <div class="cta-band">
+          <h2>Ready to turn knowledge into action?</h2>
+          <p>See how your everyday choices heal the landscape.</p>
+          <a href="ais.html" class="btn btn-secondary">Open the Simulator</a>
+        </div>
+      </div>
+    </main>
+
+    <a href="#top" class="go-top">↑ Top</a>
+
+    <!-- ===== SHARED FOOTER (Student 3) ===== -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div>
+          <p class="foot-h">LandAlive</p>
+          <p>Student-led action for SDG 15: Life on Land.</p>
+        </div>
+        <div>
+          <p class="foot-h">This Page</p>
+          <ul>
+            <li><a href="pageEditor_ST3.html">Page Editor (Student 3)</a></li>
+            <li><a href="validation_ST3.html">Validation (Student 3)</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="foot-h">Student Details</p>
+          <p>Pawan Peiris - Student 3<br />Feedback &amp; Team</p>
+        </div>
+        <div>
+          <p class="foot-h">The Team</p>
+          <ul>
+            <li>
+              Thevindu Senanayake - Student 1 (Template, Home, Gallery, Profile,
+              Sitemap)
+            </li>
+            <li>Rashavi Dharmarathne - Student 2 (Splash, Simulator)</li>
+            <li>Pawan Peiris - Student 3 (Feedback, Team)</li>
+          </ul>
+        </div>
+        <div>
+          <p class="foot-h">Compliance</p>
+          <ul>
+            <li>
+              <a href="https://www.w3.org/WAI/" target="_blank" rel="noopener"
+                >Accessibility (WAI)</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer-bottom">
+        &copy; 2026 LandAlive. Images courtesy of Unsplash (royalty-free).
+      </p>
+    </footer>
+  </body>
+</html>

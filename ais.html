@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LandAlive - Action Impact Simulator | SDG 15</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- ========== PAGE-SPECIFIC EMBEDDED CSS (AIS only, 5+ rules) ========== -->
+    <style>
+      /* Rule 1: background image swaps via JS (spec 4.5.6); a colour-tinted
+       gradient is layered over each image so levels read as barren/recovering/
+       thriving and text stays readable. Smooth cross-fade on change. */
+      body.ais-page {
+        background-size: cover;
+        background-attachment: fixed;
+        background-position: center;
+        background-color: var(--sand);
+        transition:
+          background-image 0.7s ease,
+          background-color 0.7s ease;
+      }
+      /* Rule 2: translucent panel keeps content readable over any background */
+      .ais-panel {
+        background: rgba(251, 250, 247, 0.94);
+        border-radius: var(--radius);
+        padding: 32px;
+        box-shadow: var(--shadow);
+      }
+      /* Rule 3: action card grid layout */
+      .action-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 18px;
+      }
+      /* Rule 4: individual action card */
+      .action-card {
+        background: var(--card);
+        border: 2px solid var(--border);
+        border-radius: var(--radius);
+        overflow: hidden;
+        cursor: pointer;
+        transition:
+          border-color 0.25s ease,
+          transform 0.2s ease,
+          box-shadow 0.25s ease;
+      }
+      .action-card:hover,
+      .action-card:focus {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow);
+        outline: none;
+      }
+      .action-card img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+      }
+      .action-card .ac-body {
+        padding: 14px 16px;
+      }
+      .action-card .ac-title {
+        font-family: var(--font-display);
+        color: var(--canopy);
+        font-size: 1.15rem;
+        font-weight: 600;
+        line-height: 1.15;
+        margin-bottom: 4px;
+      }
+      .action-card .points {
+        font-weight: 700;
+        color: var(--clay);
+        font-family: var(--font-body);
+      }
+      /* Rule 5: selected-card state (visual indication of selection) */
+      .action-card.selected {
+        border-color: var(--forest);
+        box-shadow: 0 0 0 3px rgba(92, 174, 92, 0.4);
+      }
+      .action-card.selected .ac-body::after {
+        content: " ✓ Selected";
+        color: var(--forest);
+        font-weight: 700;
+      }
+
+      /* Feedback summary area */
+      .feedback-area {
+        margin-top: 26px;
+        padding: 22px 24px;
+        border-radius: var(--radius);
+        background: var(--mist);
+        border: 1px solid var(--border);
+      }
+      .feedback-area .level {
+        font-size: 1.35rem;
+        font-weight: 700;
+        font-family: var(--font-display);
+        color: var(--canopy);
+      }
+    </style>
+  </head>
+  <body class="ais-page">
+    <!-- ===== SHARED HEADER + NAVIGATION ===== -->
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="home.html">
+          <img
+            src="https://images.unsplash.com/photo-1518495973542-4542c06a5843?auto=format&fit=crop&w=100&q=60"
+            alt="LandAlive logo showing sunlit green forest leaves"
+          />
+          <span>
+            <span class="brand-name">LandAlive</span>
+            <span class="brand-tag">SDG 15 · Life on Land</span>
+          </span>
+        </a>
+        <nav class="main-nav" aria-label="Main navigation">
+          <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="ais.html" class="active">Simulator</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="sitemap.html">Sitemap</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <div class="ais-panel">
+          <span class="chapter-label">Chapter 4 · Act &amp; measure</span>
+          <h1>Watch the Land Heal</h1>
+          <p class="section-lead">
+            Pick the everyday actions you'd realistically take for Life on Land.
+            This isn't a test - as your impact grows, the landscape behind you
+            shifts from barren to thriving. See how your choices add up.
+          </p>
+
+          <!-- 6 action cards. Each carries impact points in data-points. -->
+          <div class="action-grid" style="margin-top: 26px">
+            <div class="action-card" tabindex="0" role="button" data-points="3">
+              <img
+                src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=500&q=60"
+                alt="A young tree being planted in soil"
+              />
+              <div class="ac-body">
+                <p class="ac-title">Plant a Tree</p>
+                <p>Join a local planting day to restore lost canopy.</p>
+                <p class="points">Impact points: 3</p>
+              </div>
+            </div>
+
+            <div class="action-card" tabindex="0" role="button" data-points="2">
+              <img
+                src="https://images.unsplash.com/photo-1621496654772-c66c48290259?auto=format&fit=crop&w=500&q=60"
+                alt="Compost bin with food scraps and leaves"
+              />
+              <div class="ac-body">
+                <p class="ac-title">Compost Waste</p>
+                <p>Turn food scraps into soil instead of landfill.</p>
+                <p class="points">Impact points: 2</p>
+              </div>
+            </div>
+
+            <div class="action-card" tabindex="0" role="button" data-points="2">
+              <img
+                src="https://images.unsplash.com/photo-1592290435338-682c400cb6f8?auto=format&fit=crop&w=500&q=60"
+                alt="Wildflowers growing in a garden bed"
+              />
+              <div class="ac-body">
+                <p class="ac-title">Plant Native Flowers</p>
+                <p>Give pollinators the habitat they need.</p>
+                <p class="points">Impact points: 2</p>
+              </div>
+            </div>
+
+            <div class="action-card" tabindex="0" role="button" data-points="4">
+              <img
+                src="https://images.unsplash.com/photo-1616680214084-22670de1bc82?auto=format&fit=crop&w=500&q=60"
+                alt="Volunteers collecting litter during a community clean-up"
+              />
+              <div class="ac-body">
+                <p class="ac-title">Volunteer Locally</p>
+                <p>Give time to a habitat-restoration project.</p>
+                <p class="points">Impact points: 4</p>
+              </div>
+            </div>
+
+            <div class="action-card" tabindex="0" role="button" data-points="1">
+              <img
+                src="https://images.unsplash.com/photo-1515378960530-7c0da6231fb1?auto=format&fit=crop&w=500&q=60"
+                alt="Person reading and sharing information on a laptop"
+              />
+              <div class="ac-body">
+                <p class="ac-title">Share Awareness</p>
+                <p>Post one practical Life-on-Land tip to others.</p>
+                <p class="points">Impact points: 1</p>
+              </div>
+            </div>
+
+            <div class="action-card" tabindex="0" role="button" data-points="3">
+              <img
+                src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=500&q=60"
+                alt="Fresh locally grown vegetables at a market stall"
+              />
+              <div class="ac-body">
+                <p class="ac-title">Cut Food Waste</p>
+                <p>Buy mindfully to ease pressure on farmland.</p>
+                <p class="points">Impact points: 3</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dynamic feedback area -->
+          <div class="feedback-area" aria-live="polite">
+            <p>Selected actions: <strong id="countSel">0</strong></p>
+            <p>Total impact score: <strong id="score">0</strong></p>
+            <p class="level" id="level">Level: -</p>
+            <p id="message">Select actions above to see your impact.</p>
+            <button class="btn" type="button" id="resetBtn">Reset</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- ===== SHARED FOOTER (Student 2) ===== -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div>
+          <p class="foot-h">LandAlive</p>
+          <p>Student-led action for SDG 15: Life on Land.</p>
+        </div>
+        <div>
+          <p class="foot-h">This Page</p>
+          <ul>
+            <li><a href="pageEditor_ST2.html">Page Editor (Student 2)</a></li>
+            <li><a href="validation_ST2.html">Validation (Student 2)</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="foot-h">Student Details</p>
+          <p>Rashavi Dharmarathne - Student 2<br />Splash &amp; Simulator</p>
+        </div>
+        <div>
+          <p class="foot-h">The Team</p>
+          <ul>
+            <li>
+              Thevindu Senanayake - Student 1 (Template, Home, Gallery, Profile,
+              Sitemap)
+            </li>
+            <li>Rashavi Dharmarathne - Student 2 (Splash, Simulator)</li>
+            <li>Pawan Peiris - Student 3 (Feedback, Team)</li>
+          </ul>
+        </div>
+        <div>
+          <p class="foot-h">Compliance</p>
+          <ul>
+            <li>
+              <a href="https://www.w3.org/WAI/" target="_blank" rel="noopener"
+                >Accessibility (WAI)</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer-bottom">
+        &copy; 2026 LandAlive. Images courtesy of Unsplash (royalty-free).
+      </p>
+    </footer>
+
+    <!-- ========== AIS JAVASCRIPT (selection + scoring + background) ========== -->
+    <script>
+      /* Impact-level thresholds (defined by the student):
+         Low    : score 1-4   -> Background image A (barren / dry)
+         Medium : score 5-9   -> Background image B (recovering)
+         High   : score 10+   -> Background image C (thriving)
+       Each image is layered UNDER a colour-tinted gradient so the mood shifts
+       amber -> green -> deep forest and the content stays readable. */
+      var IMG_LOW =
+        "https://images.unsplash.com/photo-1470115636492-6d2b56f9146d?auto=format&fit=crop&w=1400&q=60";
+      var IMG_MED =
+        "https://images.unsplash.com/photo-1600340053706-32d1278206ef?auto=format&fit=crop&w=1400&q=60";
+      var IMG_HIGH =
+        "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1400&q=60";
+
+      var BG_LOW =
+        "linear-gradient(rgba(180,120,50,0.55), rgba(120,80,35,0.65)), url('" +
+        IMG_LOW +
+        "')";
+      var BG_MED =
+        "linear-gradient(rgba(90,150,80,0.45), rgba(45,110,60,0.6)), url('" +
+        IMG_MED +
+        "')";
+      var BG_HIGH =
+        "linear-gradient(rgba(30,100,50,0.5), rgba(20,70,40,0.68)), url('" +
+        IMG_HIGH +
+        "')";
+
+      // Preload the three images so the swap cross-fades instead of flashing white
+      [IMG_LOW, IMG_MED, IMG_HIGH].forEach(function (src) {
+        new Image().src = src;
+      });
+
+      var cards = document.querySelectorAll(".action-card");
+      var scoreEl = document.getElementById("score");
+      var countEl = document.getElementById("countSel");
+      var levelEl = document.getElementById("level");
+      var msgEl = document.getElementById("message");
+      var body = document.body;
+
+      // Recalculate the total whenever selection changes
+      function update() {
+        var total = 0;
+        var selected = 0;
+        cards.forEach(function (card) {
+          if (card.classList.contains("selected")) {
+            total += parseInt(card.getAttribute("data-points"), 10);
+            selected++;
+          }
+        });
+
+        scoreEl.textContent = total;
+        countEl.textContent = selected;
+
+        // Decide impact level + matching tinted background image
+        if (total === 0) {
+          levelEl.textContent = "Level: -";
+          msgEl.textContent = "Select actions above to see your impact.";
+          body.style.backgroundImage = "none";
+        } else if (total <= 4) {
+          levelEl.textContent = "Level: Low impact";
+          msgEl.textContent =
+            "A good start - every action counts. The land is barren but hopeful. Add a few more.";
+          body.style.backgroundImage = BG_LOW;
+        } else if (total <= 9) {
+          levelEl.textContent = "Level: Medium impact";
+          msgEl.textContent =
+            "Strong choices! The landscape is recovering - your habits are making a real difference.";
+          body.style.backgroundImage = BG_MED;
+        } else {
+          levelEl.textContent = "Level: High impact";
+          msgEl.textContent =
+            "Excellent commitment! The land is thriving. Now inspire others to take these actions too.";
+          body.style.backgroundImage = BG_HIGH;
+        }
+      }
+
+      // Toggle selection on click and keyboard
+      function toggle(card) {
+        card.classList.toggle("selected");
+        update();
+      }
+      cards.forEach(function (card) {
+        card.addEventListener("click", function () {
+          toggle(card);
+        });
+        card.addEventListener("keydown", function (e) {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            toggle(card);
+          }
+        });
+      });
+
+      // Reset everything
+      document
+        .getElementById("resetBtn")
+        .addEventListener("click", function () {
+          cards.forEach(function (card) {
+            card.classList.remove("selected");
+          });
+          update();
+        });
+    </script>
+  </body>
+</html>

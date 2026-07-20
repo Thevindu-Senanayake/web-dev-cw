@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Validation - Student 1 | LandAlive</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .val-wrap {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+      .val-section {
+        margin-bottom: 32px;
+        scroll-margin-top: 100px;
+      }
+      .val-card {
+        border: 1px solid var(--border);
+        border-left: 6px solid var(--forest);
+        border-radius: var(--radius);
+        background: var(--card);
+        padding: 18px 20px;
+        box-shadow: var(--shadow-sm);
+      }
+      .pass {
+        color: var(--canopy);
+        font-weight: 700;
+      }
+      .val-shot {
+        background: var(--mist);
+        border: 1px dashed var(--leaf);
+        border-radius: var(--radius);
+        padding: 24px;
+        text-align: center;
+        color: var(--muted);
+        margin-top: 12px;
+      }
+      code {
+        background: var(--sand);
+        padding: 1px 5px;
+        border-radius: 4px;
+        font-size: 0.9em;
+      }
+    </style>
+  </head>
+  <body id="top">
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="home.html">
+          <img
+            src="https://images.unsplash.com/photo-1518495973542-4542c06a5843?auto=format&fit=crop&w=100&q=60"
+            alt="LandAlive logo showing sunlit green forest leaves"
+          />
+          <span>
+            <span class="brand-name">LandAlive</span>
+            <span class="brand-tag">Validation · Student 1</span>
+          </span>
+        </a>
+        <nav class="main-nav" aria-label="Main navigation">
+          <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="content_ST1.html">Content</a></li>
+            <li><a href="pageEditor_ST1.html">Page Editor</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="container val-wrap">
+        <span class="chapter-label">Builder's Logbook</span>
+        <h1>Validation Evidence - Student 1</h1>
+        <p class="section-lead">
+          W3C Markup Validation results for every page I implemented. Each page
+          returns <strong>0 errors</strong>.
+        </p>
+
+        <section class="val-section" id="home">
+          <h2>Home Page (home.html)</h2>
+          <div class="val-card">
+            <p class="pass">
+              ✔ Document checking completed. No errors or warnings to show.
+            </p>
+            <p>Validated with the W3C Nu HTML Checker (validator.w3.org/nu).</p>
+            <div class="val-shot">
+              <img
+                src="./validation_snapshots/home.jpeg"
+                alt="Screenshot of W3C validation result for home.html showing 100% valid, 0 errors."
+              />
+            </div>
+          </div>
+        </section>
+
+        <section class="val-section" id="gallery">
+          <h2>Gallery Page (gallery.html)</h2>
+          <div class="val-card">
+            <p class="pass">
+              ✔ Document checking completed. No errors or warnings to show.
+            </p>
+            <p>Validated with the W3C Nu HTML Checker.</p>
+            <div class="val-shot">
+              <img
+                src="./validation_snapshots/gallery.jpeg"
+                alt="Screenshot of W3C validation result for gallery.html showing 100% valid, 0 errors."
+              />
+            </div>
+          </div>
+        </section>
+
+        <section class="val-section" id="profile">
+          <h2>User Profile (profile.html)</h2>
+          <div class="val-card">
+            <p class="pass">
+              ✔ Document checking completed. No errors or warnings to show.
+            </p>
+            <p>Validated with the W3C Nu HTML Checker.</p>
+            <div class="val-shot">
+              <img
+                src="./validation_snapshots/profile.jpeg"
+                alt="Screenshot of W3C validation result for profile.html showing 100% valid, 0 errors."
+              />
+            </div>
+          </div>
+        </section>
+
+        <section class="val-section" id="sitemap">
+          <h2>Sitemap (sitemap.html)</h2>
+          <div class="val-card">
+            <p class="pass">
+              ✔ Document checking completed. No errors or warnings to show.
+            </p>
+            <p>
+              Validated with the W3C Nu HTML Checker. Inline SVG markup
+              validated cleanly.
+            </p>
+            <div class="val-shot">
+              <img
+                src="./validation_snapshots/sitemap.jpeg"
+                alt="Screenshot of W3C validation result for sitemap.html showing 100% valid, 0 errors."
+              />
+            </div>
+          </div>
+        </section>
+
+        <section class="val-section" id="content">
+          <h2>Content Page 1 (content_ST1.html)</h2>
+          <div class="val-card">
+            <p class="pass">
+              ✔ Document checking completed. No errors or warnings to show.
+            </p>
+            <p>Validated with the W3C Nu HTML Checker.</p>
+            <div class="val-shot">
+              <img
+                src="./validation_snapshots/content_ST1.jpeg"
+                alt="Screenshot of W3C validation result for content_ST1.html showing 100% valid, 0 errors."
+              />
+            </div>
+          </div>
+        </section>
+
+        <section class="val-section" id="reflection">
+          <h2>Reflection on Validation</h2>
+          <p>
+            Early drafts flagged a missing <code>alt</code> attribute and an
+            unclosed <code>&lt;li&gt;</code>. I fixed both, re-ran the checker,
+            and all pages now pass with zero errors. I learned to validate often
+            rather than only at the end.
+          </p>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div>
+          <p class="foot-h">LandAlive</p>
+          <p>Validation - Student 1.</p>
+        </div>
+        <div>
+          <p class="foot-h">Links</p>
+          <ul>
+            <li><a href="pageEditor_ST1.html">My Page Editor</a></li>
+            <li><a href="home.html">Home</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="foot-h">Student Details</p>
+          <p>Thevindu Senanayake - Student 1</p>
+        </div>
+        <div>
+          <p class="foot-h">The Team</p>
+          <ul>
+            <li>
+              Thevindu Senanayake - Student 1 (Template, Home, Gallery, Profile,
+              Sitemap)
+            </li>
+            <li>Rashavi Dharmarathne - Student 2 (Splash, Simulator)</li>
+            <li>Pawan Peiris - Student 3 (Feedback, Team)</li>
+          </ul>
+        </div>
+        <div>
+          <p class="foot-h">Compliance</p>
+          <ul>
+            <li>
+              <a href="https://www.w3.org/WAI/" target="_blank" rel="noopener"
+                >Accessibility (WAI)</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer-bottom">&copy; 2026 LandAlive.</p>
+    </footer>
+  </body>
+</html>
