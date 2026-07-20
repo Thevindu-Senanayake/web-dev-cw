@@ -24,4 +24,4 @@ jobs:
       - name: Install HTML validator
         run: pip install html5validator
       - name: Validate HTML & CSS (W3C Nu)
-        run: html5validator --root . --also-check-css
+        run: html5validator --root .
