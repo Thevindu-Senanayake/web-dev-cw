@@ -15,10 +15,6 @@
 
     <link rel="stylesheet" href="style.css" />
 
-    <!-- =========================================================
-       PAGE-SPECIFIC EMBEDDED CSS (Home Page only)
-       Minimum 5 rules. Does NOT override the Global CSS.
-       ========================================================= -->
     <style>
       /* Let the animated SVG scene show through: drop the global body wash on Home */
       body {
@@ -241,7 +237,6 @@
       </g>
     </svg>
 
-    <!-- ===== SHARED HEADER + NAVIGATION (do not modify structure) ===== -->
     <header class="site-header">
       <div class="header-inner">
         <a class="brand" href="home.html">
@@ -268,7 +263,6 @@
       </div>
     </header>
 
-    <!-- ===== MAIN CONTENT ===== -->
     <main>
       <div class="container">
         <!-- Hero - Chapter 2: Understand the stakes -->
@@ -311,7 +305,7 @@
           </div>
         </section>
 
-        <!-- Mission / goal promotion cards (at least 3) -->
+        <!-- Mission / goal promotion cards -->
         <section class="section reveal" aria-labelledby="mission-h">
           <span class="eyebrow">Three fronts, one fight</span>
           <h2 id="mission-h">Why Life on Land Matters</h2>
@@ -391,7 +385,7 @@
           </div>
         </section>
 
-        <!-- Interactive gallery linking to the 4 content pages -->
+        <!-- Interactive gallery linking to the content pages -->
         <section class="section reveal" aria-labelledby="explore-h">
           <span class="eyebrow">Chapter 3 · Go deeper</span>
           <h2 id="explore-h">Choose Where to Go Deeper</h2>
@@ -432,7 +426,6 @@
           </div>
         </section>
 
-        <!-- CTA band pointing to the next chapter -->
         <section class="section reveal">
           <div class="cta-band">
             <span class="eyebrow" style="color: #c8e6cf"
@@ -449,7 +442,6 @@
       </div>
     </main>
 
-    <!-- ===== SHARED FOOTER (Student 1's links) ===== -->
     <footer class="site-footer">
       <div class="footer-inner">
         <div>
@@ -499,14 +491,11 @@
       </p>
     </footer>
 
-    <!-- ===== Home JavaScript: stat counters + scroll reveal ===== -->
     <script>
-      // Respect reduced-motion: skip animation, show final values immediately
       var reduce = window.matchMedia(
         "(prefers-reduced-motion: reduce)",
       ).matches;
 
-      // Animated stat counters, triggered when the row scrolls into view
       function runCounter(el) {
         var target = parseFloat(el.getAttribute("data-target"));
         var suffix = el.getAttribute("data-suffix") || "";
@@ -528,7 +517,6 @@
         }, 25);
       }
 
-      // Generic scroll-reveal + counter trigger via IntersectionObserver
       var reveals = document.querySelectorAll(".reveal");
       var counters = document.querySelectorAll(".stat-num");
       if ("IntersectionObserver" in window && !reduce) {
@@ -548,7 +536,6 @@
           obs.observe(r);
         });
       } else {
-        // Fallback: reveal everything and set final numbers
         reveals.forEach(function (r) {
           r.classList.add("is-visible");
         });
