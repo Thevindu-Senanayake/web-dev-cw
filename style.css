@@ -1,15 +1,3 @@
-/* ============================================================
-   LandAlive - Global Stylesheet (style.css)
-   SDG 15: Life on Land  ·  "Modern Eco" design system
-   Author: Thevindu Senanayake (Student 1 - Implementation Lead)
-   ------------------------------------------------------------
-   SHARED FILE - used by every page in the site.
-   DO NOT change the structure/nav/global rules below when you
-   integrate your page. Add PAGE-SPECIFIC styles in your own
-   <style> block on your page, never here.
-   Fonts (Inter + Fraunces) are loaded via <link> in each page.
-   ============================================================ */
-
 /* ---- 1. Design tokens (palette, type, spacing) ---- */
 :root {
   /* Greens */
